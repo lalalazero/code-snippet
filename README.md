@@ -88,6 +88,7 @@ new Vue({
   p {
     border: 1px solid red;
     width: 100px;
+    height: 100px;
   }
 }
 
@@ -98,7 +99,7 @@ new Vue({
   opacity: 0;
   transform: translateX(100%)
 }
-.fade-enter-active {
+.fade-leave-active {
   position: absolute;
 }
 .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
