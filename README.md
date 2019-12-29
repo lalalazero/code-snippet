@@ -108,3 +108,6 @@ new Vue({
 }
 ```
 
+效果：
+
+![3](https://user-images.githubusercontent.com/20458239/71555039-0c50b980-2a62-11ea-8a00-77f3bbed6794.gif)
