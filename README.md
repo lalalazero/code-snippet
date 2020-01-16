@@ -1,7 +1,7 @@
 # code-snippet
 
 
-## 1. 打印问题
+## 1. var 和 let 还有 for 循环的作用域问题
 
 ```javascript
 // case0
@@ -54,60 +54,22 @@ for(let i = (setTimeout(()=>console.log('init_' + i)),0); i < 3; i++){
     原因：i 的初始值是不会变的（相当于一个单独的作用域），每次循环都是拷贝一个新的 i（每次循环也是新的一个作用域）
     
  
-## 2. vue 动画实现轮播效果
-基于 vue2.6
-```html
-<div id="demo">
-    <button v-on:click="show = !show">
-        Toggle
-    </button>
-    <div style="display: flex">
-        <transition name="fade">
-            <p v-if="show">hello</p>
-        </transition>
-        <transition name="fade">
-            <p v-if="!show">world</p>
-        </transition>
-    </div>
-</div>
-```
-
+## 2. map 调用 parseInt 方法
 ```javascript
-new Vue({
-  el: '#demo',
-  data: {
-    show: true
-  }
-})
+var arr1 = ["1","2","3"]
+
+console.log(arr1.map(parseInt)) // [1, NaN, NaN]
+
+console.log(arr1.map(x => parseInt(x))) // [1, 2, 3]
 ```
 
-```scss
-#demo {
-  padding: 20px;
-  border: 1px solid;
-  p {
-    border: 1px solid red;
-    width: 100px;
-    height: 100px;
-  }
-}
+直接调用 `map(parseInt)` 其实等同于 `map(parseInt("1",0,arr))`，第一个参数是 `currentValue`，第二个参数是 `index`，第三个参数是 `arr` 本身。
 
-.fade-enter-active, .fade-leave-active {
-  transition: all .3s;
-}
-.fade-enter {
-  opacity: 0;
-  transform: translateX(100%)
-}
-.fade-leave-active {
-  position: absolute;
-}
-.fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
-  transform: translateX(-100%)
-}
-```
+`parseInt` 方法接收两个参数，一个是要被解析的字符串，一个是进制参数。参见 `MDN` 文档，进制的有效范围是 `2-36` 之间的整数。当传了一个无效的进制时：
+>在基数为 undefined，或者基数为 0 或者没有指定的情况下，JavaScript 作如下处理：
+- 如果字符串 string 以"0x"或者"0X"开头, 则基数是16 (16进制).
+- 如果字符串 string 以"0"开头, 基数是8（八进制）或者10（十进制），那么具体是哪个基数由实现环境决定。ECMAScript 5 规定使用10，但是并不是所有的浏览器都遵循这个规定。因此，永远都要明确给出radix参数的值。
+- 如果字符串 string 以其它任何值开头，则基数是10 (十进制)。
+- 如果第一个字符不能被转换成数字，parseInt返回NaN。
 
-效果：
-
-![3](https://user-images.githubusercontent.com/20458239/71555039-0c50b980-2a62-11ea-8a00-77f3bbed6794.gif)
+每次使用 `parseInt` 最好都指明进制参数。
