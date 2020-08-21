@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest src --no-cache"
+    "test": "jest src --no-cache && jest-coverage-badges"
   },
   "repository": {
     "type": "git",
@@ -22,6 +22,7 @@
     "@babel/preset-env": "^7.11.0",
     "@types/jest": "^26.0.10",
     "babel-jest": "^26.3.0",
-    "jest": "^26.4.1"
+    "jest": "^26.4.1",
+    "jest-coverage-badges": "^1.1.2"
   }
 }
