@@ -1,5 +1,5 @@
 TN:
-SF:src\01_debounce_throttle\index.js
+SF:src/01_debounce_throttle/index.js
 FN:1,debounce
 FN:3,(anonymous_1)
 FN:10,throttle
