@@ -7,4 +7,8 @@
 ![badge](./coverage/badge-branches.svg)
 
 ### 01_debounce_throttle
-
+### 02_array
+- intersection
+- difference
+- union
+- flatten
