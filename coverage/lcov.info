@@ -1,5 +1,5 @@
 TN:
-SF:src\01_debounce_throttle\index.js
+SF:src/01_debounce_throttle/index.js
 FN:1,debounce
 FN:3,(anonymous_1)
 FN:10,throttle
@@ -34,7 +34,7 @@ BRF:4
 BRH:4
 end_of_record
 TN:
-SF:src\02_array\index.js
+SF:src/02_array/index.js
 FN:1,union
 FN:7,intersection
 FN:11,(anonymous_2)
@@ -127,7 +127,7 @@ BRF:16
 BRH:15
 end_of_record
 TN:
-SF:src\03_call_apply_bind\index.js
+SF:src/03_call_apply_bind/index.js
 FN:1,myApply
 FN:11,myBind
 FN:13,newFn
